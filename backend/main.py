@@ -21,4 +21,4 @@ def redirect_to_source(short_id: str):
     if fetch_source_url:
         return RedirectResponse(url=fetch_source_url, status_code=302)
 
-    return {'message': 'No Such shortUrl found' }
+    return {'message': 'No Such shortUrl found'}

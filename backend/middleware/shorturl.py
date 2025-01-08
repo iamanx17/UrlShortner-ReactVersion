@@ -16,7 +16,8 @@ def updateShortUseCase(short_url_list, user_id):
     not_found_list, not_updated_list = [], []
     print(short_url_list)
     for url_dict in short_url_list:
-        source = url_dict.get('source')
+        print('urldict is ', url_dict)
+        source = str(url_dict.get('source'))
         shortId = url_dict.get('shortId')
         update_gateway = updateShortGateway(user_id=user_id)
         not_found, not_updated = update_gateway.updateShort(
@@ -33,7 +34,7 @@ def updateShortUseCase(short_url_list, user_id):
 
     if not_updated_list:
         response['item_not_updated'] = not_updated_list
-        response['message'] = 'Source is already matched'
+        response['message'] = 'Source is already updated'
 
     return response
 

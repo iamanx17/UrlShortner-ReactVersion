@@ -1,0 +1,45 @@
+.image::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.form-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.form-item {
+  margin: 2px;
+  width: 100%;
+}
+
+.form-item label {
+  font-size: 16px;
+}
+
+.form-item input {
+  border: 2px solid #f0f0f0;
+  border-radius: 3px;
+  width: 100%;
+  font-size: 12px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.form-item input:focus {
+  outline: none;
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+  outline: none;
+}

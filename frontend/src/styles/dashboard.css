@@ -1,0 +1,77 @@
+.dashboard {
+  border: 2px solid #f0f0f0;
+}
+
+.input-box input {
+  border: 2px solid #eee;
+}
+
+.input-box input::placeholder {
+  font-size: 14px;
+}
+
+.input-box input:focus {
+  outline: none;
+}
+
+.history .entry {
+  background-color: rgb(212, 218, 225);
+  margin: 10px auto;
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  font-size: 16px;
+  color: #000;
+  transform: scale(0.98);
+  transition: all 0.2s ease-in ;
+}
+
+.history .entry h2 {
+  font-size: 18px;
+  color: #000;
+  background-color: #fff;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.entry:hover{
+  cursor: pointer;
+  transform: scale(1);
+}
+
+.entry-detail {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin: 0 10px 0 30px;
+}
+.entry-detail p{
+  margin: 0;
+}
+
+
+.entry-detail i {
+  background-color: #fff;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.short:active {
+  transform: scale(0.98);
+}
+.short:hover {
+  opacity: 0.9;
+}

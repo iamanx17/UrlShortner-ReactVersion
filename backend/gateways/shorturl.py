@@ -6,21 +6,27 @@ import string
 
 
 class shorturlBaseGateway:
-    def __init__(self, user_id):
-        self.user_id = ObjectId(user_id)
+    def __init__(self, user_id=None):
+        self.user_id = ObjectId(user_id) if user_id else None
 
     def create_short_url(self, url, short_id_length=6):
         url_dict = {
             'source': url,
-            'userId': self.user_id,
             'shortId': self.generate_hashId(length=short_id_length)
         }
+
+        if self.user_id:
+            url_dict['userId'] = self.user_id
 
         url = urlModel.insert_one(url_dict)
         return url_dict['shortId']
 
     def retrieve_source_url(self, short_id):
-        url = urlModel.find_one({'userId': self.user_id, 'shortId': short_id})
+        query= {'shortId': short_id}
+        if self.user_id:
+            query['userId'] = self.user_id
+
+        url = urlModel.find(query)
         if not url:
             return None
         return url
@@ -36,7 +42,6 @@ class shorturlBaseGateway:
         if url:
             urlModel.delete_one({'userId': self.user_id, 'shortId': short_id})
             return True
-
         return False
         
 
@@ -52,8 +57,7 @@ class createShortGateway(shorturlBaseGateway):
         short_url_list = []
         for url in urlist:
             url = str(url)
-            shortId = self.create_short_url(
-                url=url, short_id_length=short_id_length)
+            shortId = self.create_short_url(url=url, short_id_length=short_id_length)
             short_url_list.append({
                 'source': url,
                 'shortUrl': constants.SERVER_URL.format(shortId)

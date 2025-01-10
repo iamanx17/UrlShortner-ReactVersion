@@ -1,3 +1,7 @@
+.box{
+  background-image: linear-gradient(60deg, rgb(103, 103, 251), rgb(142, 204, 240));
+}
+
 .dashboard {
   border: 2px solid #f0f0f0;
 }
@@ -15,7 +19,7 @@
 }
 
 .history .entry {
-  background-color: rgb(212, 218, 225);
+  background-color: rgba(0, 0, 0, 0.2);
   margin: 10px auto;
   border-radius: 10px;
   padding: 18px;
@@ -23,15 +27,16 @@
   align-items: center;
   height: 60px;
   font-size: 16px;
-  color: #000;
+  color: #eee;
   transform: scale(0.98);
+  text-transform: lowercase;
   transition: all 0.2s ease-in ;
 }
 
 .history .entry h2 {
   font-size: 18px;
-  color: #000;
-  background-color: #fff;
+  color: #fff;
+  background-color: #3b89efbe;
   height: 30px;
   width: 30px;
   display: flex;
@@ -58,11 +63,11 @@
 
 
 .entry-detail i {
-  background-color: #fff;
+  background-color: #3b89efbe;
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  color: #000;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;

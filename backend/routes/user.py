@@ -2,7 +2,6 @@ from fastapi import APIRouter
 from models.user import UserRegister, UserLogin
 from middleware.user import createUser, loginUser
 
-
 user_router = APIRouter()
 
 

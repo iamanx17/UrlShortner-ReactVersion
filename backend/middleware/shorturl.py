@@ -2,9 +2,8 @@ from gateways.shorturl import createShortGateway, shorturlBaseGateway, updateSho
 import json
 
 
-def createShortUseCase(short_url_list, user_id):
-    mapped_url_list = createShortGateway(
-        user_id=user_id).short_urls(urlist=short_url_list)
+def createShortUseCase(short_url_list, user_id=None):
+    mapped_url_list = createShortGateway(user_id=user_id).short_urls(urlist=short_url_list)
     response = {
         "status": "success",
         'data': mapped_url_list
@@ -53,7 +52,7 @@ def deleteShortUseCase(short_url_id, user_id):
     }
 
 
-def retrieveShortUseCase(short_id, user_id):
+def retrieveShortUseCase(short_id, user_id=None):
     url_response = shorturlBaseGateway(user_id=user_id).retrieve_source_url(short_id=short_id)
     if not url_response:
         return {'status': 404, 'message': 'url not found'}

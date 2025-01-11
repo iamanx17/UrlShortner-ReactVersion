@@ -1,5 +1,5 @@
 const CONSTANTS = {
-    'baseUrl': 'http://localhost:8080',
+    'baseUrl': 'https://url-shortner-react-version-vqxt.vercel.app/',
 };
 
 export default CONSTANTS;

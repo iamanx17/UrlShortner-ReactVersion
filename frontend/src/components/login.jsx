@@ -15,9 +15,11 @@ const Login = () => {
     const password = formData.get("password");
 
     const res = await loginAPi(email, password);
-    if (res) {
+    if (res.error) {
+      alert(res.error);
+    } else if (res.access_token) {
       alert("Login successful");
-      dispatch(setToken(res));
+      dispatch(setToken(res.access_token));
       navigate("/");
       return;
     }
@@ -49,7 +51,9 @@ const Login = () => {
             />
           </div>
         </div>
-        <button type="submit" className="login-btn">Login</button>
+        <button type="submit" className="login-btn">
+          Login
+        </button>
         <p className="text-base text-center">
           Not have an account?{" "}
           <a href="/register" className="font-bold">

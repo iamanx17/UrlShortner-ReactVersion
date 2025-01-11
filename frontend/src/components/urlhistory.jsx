@@ -39,7 +39,7 @@ const History = ({ token }) => {
           <i className="fas fa-hand-point-right text-orange-400"></i> Your
           ShortedUrl List <i className="fas fa-link ml-1"></i>
         </h2>
-        <div className="history my-10">{!entry ? (<p className="text-white text-center text-lg">Please short any url to view the list here</p>) : entry}</div>
+        <div className="history my-10">{entry.length>0 ? entry : (<p className="text-white text-center text-lg">Please short any url to view the list here</p>)}</div>
       </div>
     </div>
   );

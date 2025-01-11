@@ -41,7 +41,7 @@ const loginAPi = async (email, password) => {
     });
 
     const response = await res.json();
-    return response.access_token;
+    return response;
   } catch (err) {
     return err;
   }

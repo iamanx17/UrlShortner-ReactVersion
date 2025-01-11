@@ -16,7 +16,7 @@ def validate_api_key(Authorization: str = Header(...)):
 
 
 @url_router.get('')
-def fetch_all_short(userId: str = Depends(validate_api_key)):
+async def fetch_all_short(userId: str = Depends(validate_api_key)):
     response = retrieveShortUseCase(user_id=userId)
     return response
 
@@ -49,3 +49,6 @@ def deleteShort(urlid: str, userId: str = Depends(validate_api_key)):
 def retrieveShort(urlid: str, userId: str = Depends(validate_api_key)):
     response = retrieveShortUseCase(short_id=urlid, user_id=userId)
     return response
+
+#fetch all short urls  userId
+# fetch only short url userid urlid 

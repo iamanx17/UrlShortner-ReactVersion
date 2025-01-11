@@ -21,23 +21,29 @@ class shorturlBaseGateway:
         url = urlModel.insert_one(url_dict)
         return url_dict['shortId']
 
-    def retrieve_source_url(self, short_id):
-        query= {'shortId': short_id}
-        if self.user_id:
-            query['userId'] = self.user_id
-
+    def retrieve_by_user(self):
+        if not self.user_id:
+            raise ValueError('UserId must not be empty')
+        query= { 'userId':self.user_id}
+        
         url = urlModel.find(query)
         if not url:
             return None
         return url
 
     @staticmethod
-    def fetch_source_url(short_id):
+    def retrieve_by_short_id(short_id):
+        if not short_id:
+            raise ValueError('shortId must not be empty')
+        
         url = urlModel.find_one({'shortId': short_id})
         if url:
             return url.get('source')
 
     def delete_short_url(self, short_id):
+        if not self.user_id:
+            raise ValueError('UserId must not be empty')
+        
         url = urlModel.find_one({'userId': self.user_id, 'shortId': short_id})
         if url:
             urlModel.delete_one({'userId': self.user_id, 'shortId': short_id})

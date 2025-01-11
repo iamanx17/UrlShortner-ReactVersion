@@ -9,7 +9,6 @@ class UserRegister(BaseModel):
     email: EmailStr
     apikey: Optional[str] = None    
     password: str
-    username: Optional[str] = None
 
 
 

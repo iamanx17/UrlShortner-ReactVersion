@@ -1,5 +1,4 @@
 from gateways.shorturl import createShortGateway, shorturlBaseGateway, updateShortGateway
-import json
 
 
 def createShortUseCase(short_url_list, user_id=None):
@@ -15,7 +14,6 @@ def updateShortUseCase(short_url_list, user_id):
     not_found_list, not_updated_list = [], []
     print(short_url_list)
     for url_dict in short_url_list:
-        print('urldict is ', url_dict)
         source = str(url_dict.get('source'))
         shortId = url_dict.get('shortId')
         update_gateway = updateShortGateway(user_id=user_id)
@@ -52,15 +50,24 @@ def deleteShortUseCase(short_url_id, user_id):
     }
 
 
-def retrieveShortUseCase(short_id, user_id=None):
-    url_response = shorturlBaseGateway(user_id=user_id).retrieve_source_url(short_id=short_id)
+def retrieveShortUseCase(short_id=None, user_id=None):
+    short_gateway = shorturlBaseGateway(user_id=user_id) 
+    if not short_id:
+        url_response = short_gateway.retrieve_by_user()
+    else:
+        url_response = short_gateway.retrieve_by_short_id(short_id=short_id)
+        
+    total_urls = [ url for url in url_response]
+    response = []
+    for url in total_urls:
+        response.append({
+            'source': url.get('source'),
+            'shortId': url.get('shortId')
+        })
     if not url_response:
         return {'status': 404, 'message': 'url not found'}
 
     return {
         'status': 200,
-        'data': {
-            'source': url_response.get('source'),
-            'shortId': url_response.get('shortId')
-        }
+        'data': response
     }

@@ -36,23 +36,10 @@ class UserGatewayBase:
             print('Some error occurred while checking email', e)
         return False
 
-    def check_username_exists(self):
-        if not self.userName:
-            raise ValueError('UserName provided must not be None')
-        try:
-            user = userModel.find_one({'username': self.userName})
-            if user:
-                self.error = 'UserName already exists'
-                self.user = user
-                return True
-        except Exception as e:
-            print('Some error occurred while checking username', e)
-        return False
-
 
 class UserRegisterGateway(UserGatewayBase):
     def create_user(self):
-        if self.check_email_exists() or self.check_username_exists():
+        if self.check_email_exists():
             return False, self.error
 
         self.user_data['apikey'] = str(uuid.uuid4())

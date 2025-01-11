@@ -37,7 +37,7 @@
 .entry-detail p{
   width: 200px;
   text-align: center;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 

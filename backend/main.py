@@ -27,7 +27,7 @@ def read_root():
 
 @app.get("/{short_id}")
 def redirect_to_source(short_id: str):
-    fetch_source_url = shorturlBaseGateway.fetch_source_url(short_id)
+    fetch_source_url = shorturlBaseGateway.retrieve_by_short_id(short_id)
     if fetch_source_url:
         return RedirectResponse(url=fetch_source_url, status_code=302)
 

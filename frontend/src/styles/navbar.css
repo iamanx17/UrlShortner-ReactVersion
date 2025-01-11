@@ -1,3 +1,11 @@
+.navbar-container{
+    @apply bg-black text-white p-5 fixed top-0 left-0 w-full text-lg shadow-md shadow-slate-900 z-30;
+}
+
 .navbar-list li{
     margin: 0 10px;
+}
+
+.navbar-container a{
+    @apply hover:text-cyan-300;
 }

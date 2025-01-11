@@ -1,11 +1,11 @@
 import constants from "../constants";
 
-export async function registerAPI(
+const registerAPI = async (
   email,
   password,
   firstName = null,
   lastName = null
-) {
+) => {
   let endpoint = constants.baseUrl + "/user/register";
   let payload = {
     firstName: firstName,
@@ -25,9 +25,9 @@ export async function registerAPI(
   } catch (err) {
     return err;
   }
-}
+};
 
-export async function loginAPi(email, password) {
+const loginAPi = async (email, password) => {
   let endpoint = constants.baseUrl + "/user/login";
   let payload = {
     email: email,
@@ -45,4 +45,6 @@ export async function loginAPi(email, password) {
   } catch (err) {
     return err;
   }
-}
+};
+
+export { registerAPI, loginAPi };

@@ -1,0 +1,46 @@
+.history-section {
+  @apply flex items-center justify-center bg-neutral-700;
+}
+
+.history .entry {
+  @apply flex items-center justify-between text-base text-white lowercase rounded-xl my-3 py-10 px-8 h-16;
+  background-color: rgba(0, 0, 0, 0.2);
+  transform: scale(0.98);
+  transition: all 0.2s ease-in;
+}
+
+.history .entry:hover{
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+.history .entry h2, .entry-detail i {
+  @apply text-lg text-white flex items-center justify-center;
+  background-color: #3b89efbe;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+.entry:hover {
+  cursor: pointer;
+  transform: scale(1);
+}
+
+.entry-detail {
+  display: inline-flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.entry-detail p{
+  width: 400px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+.entry-detail p {
+  margin: 0;
+}

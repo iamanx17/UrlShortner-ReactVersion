@@ -1,9 +1,14 @@
-.image::before {
-  content: "";
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.7);
+.login-container {
+  @apply flex flex-col items-center justify-center h-screen font-muli;
+}
+
+.login-form,
+.register-form {
+  @apply bg-white rounded-xl w-[500px] text-lg py-3 px-5 shadow-md shadow-slate-700 mt-20;
+}
+
+.login-title, .register-title {
+  @apply text-center my-5 text-2xl font-bold tracking-[2px];
 }
 
 .form-control {
@@ -34,12 +39,13 @@
   outline: none;
 }
 
-.btn {
+.login-btn, .register-btn {
+  @apply bg-black text-white w-full my-5;
   padding: 8px 12px;
   border-radius: 5px;
 }
 
-.btn:active {
+.login-btn:active, register-btn:active {
   transform: scale(0.98);
   outline: none;
 }

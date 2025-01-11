@@ -1,82 +1,45 @@
-.box{
-  background-image: linear-gradient(60deg, rgb(103, 103, 251), rgb(142, 204, 240));
+.dashboard-container{
+  @apply flex justify-center items-center h-screen font-muli;
+}
+
+.header-title{
+  @apply text-3xl font-black text-center tracking-[5px] text-white uppercase;
 }
 
 .dashboard {
+  @apply bg-white rounded-lg py-5 px-7 w-full flex justify-center flex-col shadow-lg shadow-transparent h-64 mt-20;
   border: 2px solid #f0f0f0;
 }
 
-.input-box input {
+.description{
+  @apply text-lg font-bold tracking-wide capitalize;
+}
+
+.input-box{
+  @apply mt-5 flex items-center justify-center;
+}
+
+.input-box .input {
+  @apply w-full p-2 rounded-xl text-xl;
   border: 2px solid #eee;
 }
 
-.input-box input::placeholder {
+.input-box .input::placeholder {
   font-size: 14px;
 }
 
-.input-box input:focus {
+.input-box .input:focus {
   outline: none;
 }
 
-.history .entry {
-  background-color: rgba(0, 0, 0, 0.2);
-  margin: 10px auto;
-  border-radius: 10px;
-  padding: 18px;
-  display: flex;
-  align-items: center;
-  height: 60px;
-  font-size: 16px;
-  color: #eee;
-  transform: scale(0.98);
-  text-transform: lowercase;
-  transition: all 0.2s ease-in ;
-}
-
-.history .entry h2 {
-  font-size: 18px;
-  color: #fff;
-  background-color: #3b89efbe;
-  height: 30px;
-  width: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-}
-.entry:hover{
-  cursor: pointer;
-  transform: scale(1);
-}
-
-.entry-detail {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  margin: 0 10px 0 30px;
-}
-.entry-detail p{
-  margin: 0;
+.shortBtn{
+  @apply inline-flex items-center px-12 py-3 bg-black text-white ml-2 text-lg rounded-lg;
 }
 
 
-.entry-detail i {
-  background-color: #3b89efbe;
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.short:active {
+.shortBtn:active {
   transform: scale(0.98);
 }
-.short:hover {
+.shortBtn:hover {
   opacity: 0.9;
 }

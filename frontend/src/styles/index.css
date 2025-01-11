@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-cover: url("https://images.unsplash.com/photo-1726333629906-9a52575d4b78");
+}
+
+.image{
+  background-image: var(--bg-cover);
+  @apply absolute h-full w-full top-0 left-0 bg-cover bg-center bg-no-repeat;
+}
+
+.image::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+}

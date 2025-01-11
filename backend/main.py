@@ -6,7 +6,7 @@ from gateways.shorturl import shorturlBaseGateway
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-origins = ['http://localhost:3000', "http://127.0.0.1:3000"]
+origins = ['https://url-shortner-react-version-vqxt.vercel.app/']
 
 app.add_middleware(
     CORSMiddleware,

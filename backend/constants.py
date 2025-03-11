@@ -1,1 +1,0 @@
-SERVER_URL = 'https://url-shortner-react-version-ojqz.vercel.app/{}'

@@ -43,7 +43,7 @@ def delete_short_url(short_id: str, session: Session = Depends(get_session), use
     return {'message': response}
 
 
-@url_router.get('/getallShortUrl')
+@url_router.get('/url/fetchAll')
 def fetch_all_short_url(session: Session = Depends(get_session), user_id: int = Depends(validate_api_key)):
     print('user id is', user_id)
     short_urls = url_service.get_all_url(user_id, session)

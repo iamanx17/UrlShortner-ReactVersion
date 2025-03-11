@@ -1,12 +1,10 @@
 from sqlmodel import Session, select
 from app.models import ShortUrl
-from app import constants
-from pydantic import HttpUrl
+from app.models import clickAnalytics
 
 
 class shortUrlService:
     def create_short_url(self, user_id, short_url: ShortUrl, session: Session):
-        print('short url is', short_url)
         short_url.user_id = user_id
         session.add(short_url)
         session.commit()
@@ -37,3 +35,14 @@ class shortUrlService:
     def get_all_url(self, user_id:str, session: Session):
         short_urls = self.get_url_obj(user_id, session)
         return short_urls
+    
+    def add_click_analytics(self, click_report: clickAnalytics, session: Session):
+        session.add(click_report)
+        session.commit()
+        return click_report
+    
+    def increase_click(self, short_url: ShortUrl, session:Session):
+        short_url.total_clicks +=1
+        session.add(short_url)
+        session.commit()
+        return short_url

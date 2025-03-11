@@ -58,7 +58,8 @@ class UserService:
             'user_id': fetch_user.id,
             'first_name': fetch_user.first_name,
             'last_name': fetch_user.last_name,
-            'email': fetch_user.email
+            'email': fetch_user.email,
+            'timestamp': fetch_user.timestamp
         }
     
     def update_user(self,user_id, user_model, session):

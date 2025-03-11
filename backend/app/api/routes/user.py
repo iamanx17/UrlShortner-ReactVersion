@@ -22,7 +22,8 @@ def fetch_user(user_id:int = Depends(validate_api_key), session: Session = Depen
             'first_name': user.first_name,
             'last_name': user.last_name,
             'email': user.email,
-            'api_key': user.api_key
+            'api_key': user.api_key,
+            'timestamp': user.timestamp
         }
     }
 

@@ -23,7 +23,7 @@ class ShortUrl(SQLModel, table=True):
     short_id: Optional[str]= Field(default_factory=lambda: secrets.token_urlsafe(6), index=True)
     timestamp: Optional[datetime] = Field(default_factory=datetime.utcnow)
     user_id: Optional[int] = Field(foreign_key='user.id')
-    total_clicks: Optional[int] | 0
+    total_clicks: Optional[int] = Field(default=0)
     user: User = Relationship(back_populates='shorturls')
     clicks_report: Optional[List['clickAnalytics']] = Relationship(back_populates='short_url', cascade_delete=True)
 

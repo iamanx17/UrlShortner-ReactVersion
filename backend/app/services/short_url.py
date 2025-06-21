@@ -1,4 +1,5 @@
-from sqlmodel import Session, select
+from sqlalchemy.orm import Session
+from sqlalchemy import select
 from app.models import ShortUrl
 from app.models import clickAnalytics
 
